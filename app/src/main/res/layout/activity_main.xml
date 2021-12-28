@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Info"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_marginTop="10sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameTV"
+        android:layout_below="@id/appTitle"
+        android:text="Name: "
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appTitle"
+        android:layout_toRightOf="@id/nameTV"
+        android:ems="10"
+        android:hint="Your name"
+        android:inputType="textPersonName"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ageTV"
+        android:layout_below="@id/name"
+        android:text="Age: "
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:inputType="numberDecimal"
+        android:hint="Your age"
+        android:layout_below="@id/name"
+        android:layout_toRightOf="@id/ageTV"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heightTV"
+        android:layout_below="@id/age"
+        android:text="Height: "
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="6"
+        android:inputType="numberDecimal"
+        android:hint="Your height"
+        android:layout_below="@id/age"
+        android:layout_toRightOf="@id/heightTV"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weightTV"
+        android:layout_below="@id/height"
+        android:text="Weight: "
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="6"
+        android:inputType="numberDecimal"
+        android:hint="Your weight"
+        android:layout_below="@id/height"
+        android:layout_toRightOf="@id/weightTV"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:id="@+id/cm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(cm)"
+        android:textSize="10sp"
+        android:layout_alignBottom="@id/heightTV"
+        android:layout_toRightOf="@id/height"/>
+
+    <TextView
+        android:id="@+id/kg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(kg)"
+        android:textSize="10sp"
+        android:layout_alignBottom="@id/weightTV"
+
+        android:layout_toRightOf="@id/weight"/>
+
+    <Button
+        android:id="@+id/btSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -17,19 +18,22 @@ class BMI : AppCompatActivity() {
         //val intent = getIntent()
         val back = findViewById<Button>(R.id.btBack)
         val next = findViewById<Button>(R.id.btNext)
-        val name = intent.getStringExtra("name")
-        val weight = intent.getIntExtra("weight", 60)
-        val height = intent.getIntExtra("height", 180)
-        val bmi = round(weight / pow(height/100.0, 2.0))
-
         val showName = findViewById<TextView>(R.id.nameShowCase)
+        val showAge = findViewById<TextView>(R.id.ageShowCase)
         val result = findViewById<TextView>(R.id.BMIResult)
 
-        //println("test $name")
+        val name = intent.getStringExtra("name")
+        val age = intent.getIntExtra("age", 18)
+        val weight = intent.getIntExtra("weight", 60)
+        val height = intent.getIntExtra("height", 180)
 
-        showName.text = name
-        result.text = "Your BMI is: " + bmi
+        val bmi = round(weight / pow(height/100.0, 2.0))
 
+        println("test $name")
+
+        showName.text = "" + name
+        showAge.text = "Age: " + age
+        result.text = "Your BMI is " + bmi
 
 
         back.setOnClickListener {

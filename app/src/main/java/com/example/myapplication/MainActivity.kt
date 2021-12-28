@@ -15,13 +15,14 @@ class MainActivity : AppCompatActivity() {
 
         val submit = findViewById<Button>(R.id.btSubmit)
         val name = findViewById<EditText>(R.id.name)
+        val age = findViewById<EditText>(R.id.age)
         val weight = findViewById<EditText>(R.id.weight)
         val height = findViewById<EditText>(R.id.height)
         //val nameTV = findViewById<TextView>(R.id.nameTV)
 
         submit.setOnClickListener {
-            if(weight.text.toString() == "" || height.text.toString() == ""){
-                Toast.makeText(this, "Weight or height is empty!", Toast.LENGTH_LONG).show()
+            if(weight.text.toString() == "" || height.text.toString() == "" || age.text.toString() == ""){
+                Toast.makeText(this, "Weight, height or age is empty!", Toast.LENGTH_LONG).show()
 
                 return@setOnClickListener
             }
@@ -30,11 +31,13 @@ class MainActivity : AppCompatActivity() {
 
                 return@setOnClickListener
             }
+
             val intent = Intent(this, BMI::class.java)
             //println("main ${name.toString()}")
 
             //nameTV.text = name
             intent.putExtra("name", name.text.toString())
+            intent.putExtra("age", age.text.toString().toInt())
             intent.putExtra("weight", weight.text.toString().toInt())
             intent.putExtra("height", height.text.toString().toInt())
             startActivity(intent)

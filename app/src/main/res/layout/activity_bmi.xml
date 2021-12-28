@@ -17,16 +17,25 @@
         android:id="@+id/nameShowCase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_below="@id/BMITitle"/>
+        android:textSize="25sp"
+        android:layout_below="@id/BMITitle"
+        android:layout_marginTop="50sp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/ageShowCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_below="@id/nameShowCase"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/BMIResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/nameShowCase"
-        android:layout_marginTop="100sp"
+        android:layout_below="@id/ageShowCase"
         android:textSize="30sp"/>
 
     <TextView
@@ -35,18 +44,18 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textStyle="bold"
-        android:text="BMI formula: weight(kilogram) ÷ height(meter) ^ 2"
+        android:text="BMI formula: weight(kilogram) ÷ height(meter) ^ 2\n"
         android:textSize="15sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Underweight\tBMI ＜ 18.5"
+        android:text="Underweight\t\t\t\tBMI ＜ 18.5"
         android:layout_below="@id/BMITable"
         android:layout_centerHorizontal="true"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="\nNormal\t18.5 ≦ BMI ＜ 24"
+        android:text="\n\t\t\t\tNormal\t\t\t18.5 ≦ BMI ＜ 24"
         android:layout_below="@id/BMITable"
         android:layout_centerHorizontal="true"/>
     <TextView
@@ -54,20 +63,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/BMITable"
         android:layout_centerHorizontal="true"
-        android:text="\n\nOverweight\t24 ≦ BMI ＜ 27"/>
+        android:layout_marginTop="2sp"
+        android:text="\n\n\t\tOverweight\t\t\t24 ≦ BMI ＜ 27"/>
 
     <Button
         android:id="@+id/btBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="back"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20sp"
+        android:layout_marginLeft="10sp"/>
     <Button
         android:id="@+id/btNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="next"
-
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20sp"
+        android:layout_marginRight="10sp"/>
 </RelativeLayout>

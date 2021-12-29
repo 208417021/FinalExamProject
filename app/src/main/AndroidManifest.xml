@@ -25,5 +25,8 @@
             </intent-filter>
         </activity>
     </application>
+    <!--  permission to access the storage in the AndroidManifest.xml  -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--  permission to access the storage in the AndroidManifest.xml  -->
 
 </manifest>

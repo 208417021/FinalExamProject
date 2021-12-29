@@ -1,12 +1,16 @@
 package com.example.myapplication
 
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.BaseColumns
 import android.widget.Button
 import android.widget.TextView
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class DB : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,5 +32,8 @@ class DB : AppCompatActivity() {
 
             return@setOnClickListener
         }
+
+
     }
 }
+

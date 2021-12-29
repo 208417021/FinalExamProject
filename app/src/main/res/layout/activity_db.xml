@@ -14,7 +14,6 @@
         android:textSize="30sp"/>
 
 
-
     <LinearLayout
         android:id="@+id/DBLayout"
         android:layout_width="match_parent"
@@ -29,33 +28,27 @@
             android:layout_below="@id/DBTitle"/>
 
         <TextView
-            android:id="@+id/BMITable"
-            android:layout_width="wrap_content"
+            android:id="@+id/Name"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textStyle="bold"
-            android:text="BMI formula: weight(kilogram) ÷ height(meter) ^ 2\n"
-            android:textSize="15sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Underweight\t\t\t\tBMI ＜ 18.5"
-            android:layout_below="@id/BMITable"
-            android:layout_centerHorizontal="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="\n\t\t\t\tNormal\t\t\t18.5 ≦ BMI ＜ 24"
-            android:layout_below="@id/BMITable"
-            android:layout_centerHorizontal="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/BMITable"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="2sp"
-            android:text="\n\n\t\tOverweight\t\t\t24 ≦ BMI ＜ 27"/>
+            android:layout_margin="20sp"
+            android:text="Name\n\n"
+            android:textSize="22sp"
+            android:padding="10sp" />
 
+        <!-- Text view to get all ages -->
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/Age"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:text="Age\n\n"
+            android:textSize="22sp"
+            android:padding="10sp" />
 
     </LinearLayout>
 

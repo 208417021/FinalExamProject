@@ -10,7 +10,7 @@ import android.widget.TextView
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
-import kotlinx.android.synthetic.main.activity_main.*
+//import kotlinx.android.synthetic.main.activity_main.*
 
 class DB : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

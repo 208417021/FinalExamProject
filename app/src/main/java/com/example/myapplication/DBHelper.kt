@@ -1,94 +1,48 @@
-package com.release.gfg1
+package com.example.myapplication
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
-    SQLiteOpenHelper(context, DATABASE_NAME, factory, DATABASE_VERSION) {
+class DBHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
-    // below is the method for creating a database by a sqlite query
-    override fun onCreate(db: SQLiteDatabase) {
-        // below is a sqlite query, where column names
-        // along with their data types is given
-        val query = ("CREATE TABLE " + TABLE_NAME + " ("
-                + ID_COL + " INTEGER PRIMARY KEY, " +
-                NAME_COl + " TEXT," +
-                AGE_COL + " TEXT" + ")")
+    companion object{ //still dunno it, probably some kinda construct?
+        private const val DATABASE_NAME = "bmi.db"
+        private const val DATABASE_VERSION = 1
+        private const val TBL_BMI = "tbl_bmi"
+        private const val ID = "id"
+        private const val DATE = "date"
+        private const val NAME = "name"
+        private const val AGE = "age"
 
-        // we are calling sqlite
-        // method for executing our query
-        db.execSQL(query)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
-        // this method is to check if table already exists
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME)
+    override fun onCreate(db: SQLiteDatabase?) { //change p0 to db here, idk what the fuck is this API, hey there is question mark
+        val createTblBMI = ("CREATE TABLE" + TBL_BMI + "(" + ID + "INTEGER PRIMARY KEY" + DATE + "TEXT," + NAME + "TEXT," + AGE + " TEXT" + ")")
+        //CREATE TABLE tbl_bmi (id, date, name, age), probably it's SQL syntax
+
+        db?.execSQL(createTblBMI) //can't figure out what the fuck is this, and default claim is p0
+    }
+
+    override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
+        db!!.execSQL("DROP TABLE IF EXISTS $TBL_BMI") //SQL API again, fuck my life
         onCreate(db)
     }
 
-    // This method is for adding data in our database
-    fun addName(name : String, age : String ){
+    fun insertBMIData(bmi: BMIModel): Long{ //why long type here? idk every APIs
+        val db = this.writableDatabase //like how compiler know writable-thing here
+        val contentValues = ContentValues()
 
-        // below we are creating
-        // a content values variable
-        val values = ContentValues()
+        //finally I can understand a thing here
+        contentValues.put(ID, bmi.id)
+        contentValues.put(DATE, bmi.date)
+        contentValues.put(NAME, bmi.name)
+        contentValues.put(AGE, bmi.age)
 
-        // we are inserting our values
-        // in the form of key-value pair
-        values.put(NAME_COl, name)
-        values.put(AGE_COL, age)
-
-        // here we are creating a
-        // writable variable of
-        // our database as we want to
-        // insert value in our database
-        val db = this.writableDatabase
-
-        // all values are inserted into database
-        db.insert(TABLE_NAME, null, values)
-
-        // at last we are
-        // closing our database
+        val success = db.insert(TBL_BMI, null, contentValues) //wondering what really will print
         db.close()
+        return success
     }
 
-    // below method is to get
-    // all data from our database
-    fun getName(): Cursor? {
-
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
-        val db = this.readableDatabase
-
-        // below code returns a cursor to
-        // read data from the database
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
-
-    }
-
-    companion object{
-        // here we have defined variables for our database
-
-        // below is variable for database name
-        private val DATABASE_NAME = "GEEKS_FOR_GEEKS"
-
-        // below is the variable for database version
-        private val DATABASE_VERSION = 1
-
-        // below is the variable for table name
-        val TABLE_NAME = "gfg_table"
-
-        // below is the variable for id column
-        val ID_COL = "id"
-
-        // below is the variable for name column
-        val NAME_COl = "name"
-
-        // below is the variable for age column
-        val AGE_COL = "age"
-    }
 }

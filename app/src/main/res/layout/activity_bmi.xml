@@ -49,13 +49,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Underweight\t\t\t\tBMI ＜ 18.5"
+        android:text="Underweight             BMI ＜ 18"
         android:layout_below="@id/BMITable"
         android:layout_centerHorizontal="true"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="\n\t\t\t\tNormal\t\t\t18.5 ≦ BMI ＜ 24"
+        android:text="\n   Normal        18 ≦ BMI ＜ 24"
         android:layout_below="@id/BMITable"
         android:layout_centerHorizontal="true"/>
     <TextView
@@ -64,7 +64,7 @@
         android:layout_below="@id/BMITable"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="2sp"
-        android:text="\n\n\t\tOverweight\t\t\t24 ≦ BMI ＜ 27"/>
+        android:text="\n\nOverweight     24 ≦ BMI ＜ 27"/>
 
     <Button
         android:id="@+id/btBack"

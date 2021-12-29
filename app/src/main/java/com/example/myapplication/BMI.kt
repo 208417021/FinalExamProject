@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.TextView
 import java.lang.Math.pow
 import java.lang.Math.round
+import java.time.LocalDate
+import java.util.*
 
 class BMI : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,16 +24,19 @@ class BMI : AppCompatActivity() {
         val showAge = findViewById<TextView>(R.id.ageShowCase)
         val result = findViewById<TextView>(R.id.BMIResult)
 
+        //val date = Date()
+        val date = LocalDate.now()
+
         val name = intent.getStringExtra("name")
         val age = intent.getIntExtra("age", 18)
         val weight = intent.getIntExtra("weight", 60)
         val height = intent.getIntExtra("height", 180)
 
-        val bmi = round(weight / pow(height/100.0, 2.0))
+        val bmi = round(weight / pow(height/100.0, 2.0) * 100) / 100
 
-        println("test $name")
+        //println("test $name")
 
-        showName.text = "" + name
+        showName.text = name
         showAge.text = "Age: " + age
         result.text = "Your BMI is " + bmi
 
@@ -44,6 +49,7 @@ class BMI : AppCompatActivity() {
         next.setOnClickListener {
             val intent = Intent(this, DB::class.java)
 
+            intent.putExtra("date", date.toString())
             startActivity(intent)
             this.finish()
 

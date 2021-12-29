@@ -3,6 +3,10 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.*
 
 class DB : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -10,6 +14,14 @@ class DB : AppCompatActivity() {
         setContentView(R.layout.activity_db)
 
         val re = findViewById<Button>(R.id.btReturn)
+        val dateTV = findViewById<TextView>(R.id.dateTV)
+        //val date = LocalDate.now()
+        val date = intent.getStringExtra("date")
+
+        //dateTV.text = SimpleDateFormat("yyyy-MM-dd", Locale.TAIWAN).format(date)
+        //not sure what is the function of second parameter, Locale.TAIWAN or Locale.getDefault()
+        //dateTV.text = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.TAIWAN).format(Date())
+        dateTV.text = date // output: yyyy-MM-dd, cannot format like other form
 
         re.setOnClickListener {
             this.finish()

@@ -37,9 +37,9 @@ class MainActivity : AppCompatActivity() {
 
             //nameTV.text = name
             intent.putExtra("name", name.text.toString())
-            intent.putExtra("age", age.text.toString().toInt())
-            intent.putExtra("weight", weight.text.toString().toInt())
-            intent.putExtra("height", height.text.toString().toInt())
+            intent.putExtra("age", age.text.toString())
+            intent.putExtra("weight", weight.text.toString())
+            intent.putExtra("height", height.text.toString())
             startActivity(intent)
 
             return@setOnClickListener

@@ -7,6 +7,7 @@ data class BMIModel(
     var date: String = "",
     var name: String = "",
     var age: String = "",
+    var bmi: String = ""
 ) {
     companion object{
         fun getAutoId(): Int{

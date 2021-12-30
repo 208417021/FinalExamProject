@@ -19,14 +19,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/DBTitle"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/dateTV"
+            android:id="@+id/DBdateTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/DBTitle"/>
+            android:text="date"/>
 
+        <TextView
+            android:id="@+id/DBnameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"/>
+
+        <TextView
+            android:id="@+id/DBageTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="age"/>
+
+        <TextView
+            android:id="@+id/DBbmiTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bmi"/>
 
 
     </LinearLayout>

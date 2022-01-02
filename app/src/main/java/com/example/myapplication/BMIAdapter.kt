@@ -11,10 +11,11 @@ class BMIAdapter:RecyclerView.Adapter<BMIAdapter.BMIViewHolder>() {
 
     fun addItem(item: ArrayList<BMIModel>){
         this.bmiList = item //transfer data from model?
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = BMIViewHolder( //idk the api and what is the function
-        LayoutInflater.from(parent.context).inflate(R.layout.activity_db, parent, false)
+        LayoutInflater.from(parent.context).inflate(R.layout.bmi_items, parent, false)
     )
 
     override fun onBindViewHolder(holder: BMIViewHolder, position: Int) { //neither does the api
@@ -28,17 +29,17 @@ class BMIAdapter:RecyclerView.Adapter<BMIAdapter.BMIViewHolder>() {
     }
 
     class BMIViewHolder(view: View): RecyclerView.ViewHolder(view){
-        //        private var id = view.findViewById<TextView>(R.id.DBidTV)
+        //private var id = view.findViewById<TextView>(R.id.DBidTV)
         private var date = view.findViewById<TextView>(R.id.DBdateTV)
-        private var name = view.findViewById<TextView>(R.id.DBnameTV)
+        //private var name = view.findViewById<TextView>(R.id.DBnameTV)
         private var age = view.findViewById<TextView>(R.id.DBageTV)
         private var bmi = view.findViewById<TextView>(R.id.DBbmiTV)
 
         fun bindView(data: BMIModel){
             date.text = data.date
-            name.text = data.name
-            age.text = data.age
-            bmi.text = data.bmi
+            //name.text = data.name
+            age.text = "Age: " + data.age
+            bmi.text = "BMI: " + data.bmi
         }
     }
 }

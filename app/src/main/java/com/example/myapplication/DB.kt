@@ -16,16 +16,20 @@ import java.util.*
 //import kotlinx.android.synthetic.main.activity_main.*
 
 class DB : AppCompatActivity() {
+    private lateinit var reBT: Button
+    private lateinit var titleTV: TextView
+
     private lateinit var dbHelper: DBHelper
     private lateinit var recyclerView: RecyclerView
-    private lateinit var reBT: Button
     private var adapter: BMIAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_db)
 
+        titleTV = findViewById(R.id.DBtitle)
         reBT = findViewById<Button>(R.id.btReturn)
+
         dbHelper = DBHelper(this)
         recyclerView = findViewById(R.id.recyclerView)
 
@@ -38,7 +42,12 @@ class DB : AppCompatActivity() {
         //dateTV.text = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.TAIWAN).format(Date())
         //dateTV.text = date // output: yyyy-MM-dd, cannot format like other form
 
-        re.setOnClickListener {
+        //initialize RecyclerView here to show data
+        titleTV.text = intent.getStringExtra("name").toString() + "'s BMI History"
+        initRecyclerView()
+        getData()
+
+        reBT.setOnClickListener {
             this.finish()
 
             return@setOnClickListener
@@ -49,6 +58,14 @@ class DB : AppCompatActivity() {
 
     private fun initRecyclerView(){
         recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = BMIAdapter()
+        recyclerView.adapter = adapter
+    }
+
+    private fun getData(){
+        val bmiList = dbHelper.getAllData()
+        //Log.e("datattttttt", "${bmiList.size}")
+        adapter?.addItem(bmiList)
     }
 }
 

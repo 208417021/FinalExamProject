@@ -62,14 +62,13 @@ class BMI : AppCompatActivity() {
             return@setOnClickListener
         }
         next.setOnClickListener {
-            //val intent = Intent(this, DB::class.java)
+            val intent = Intent(this, DB::class.java)
 
+            intent.putExtra("name", name)
             putData()
-            getData()
-            //startActivity(intent)
+            startActivity(intent)
 
-
-            //this.finish()
+            this.finish()
 
             return@setOnClickListener
         }
@@ -77,19 +76,14 @@ class BMI : AppCompatActivity() {
 
     private fun putData(){
         date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.TAIWAN).format(Date())
-        val data = BMIModel(date = date.toString(), name = name, age = age, bmi = bmi)
+        val data = BMIModel(date = date.toString(), age = age, bmi = bmi)
         val status = dbHelper.insertBMIData(data)
 
         if(status > -1){
             Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
         }else{
-            Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun getData(){
-        val bmiList = dbHelper.getAllData()
-        //Log.e("datattttttt", "${bmiList.size}")
     }
 
     private fun initView(){ //init objects here

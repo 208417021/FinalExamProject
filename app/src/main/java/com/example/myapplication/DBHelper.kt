@@ -17,13 +17,13 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
         private const val TBL_BMI = "tbl_bmi"
         private const val ID = "id"
         private const val DATE = "date"
-        private const val NAME = "name"
+        //private const val NAME = "name"
         private const val AGE = "age"
         private const val BMI = "bmi"
     }
 
     override fun onCreate(db: SQLiteDatabase?) { //idk what the fuck is this API, hey there is question mark
-        val createTblBMI = ("CREATE TABLE $TBL_BMI($ID INTEGER PRIMARY KEY,$DATE TEXT,$NAME TEXT,$AGE TEXT,$BMI TEXT)")
+        val createTblBMI = ("CREATE TABLE $TBL_BMI($ID INTEGER PRIMARY KEY,$DATE TEXT,$AGE TEXT,$BMI TEXT)")
         //val createTblBMI = ("CREATE TABLE " + TBL_BMI + "(" + ID + " INTEGER PRIMARY KEY," + DATE + " TEXT," + NAME + " TEXT," + AGE + " TEXT," + BMI + " TEXT" + ")")
         //CREATE TABLE tbl_bmi (id, date, name, age, bmi), probably it's SQL syntax
 
@@ -42,7 +42,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
         //finally I can understand a thing here
         contentValues.put(ID, data.id)
         contentValues.put(DATE, data.date)
-        contentValues.put(NAME, data.name)
+        //contentValues.put(NAME, data.name)
         contentValues.put(AGE, data.age)
         contentValues.put(BMI, data.bmi)
         Log.e("goiengioergnior", "$contentValues")
@@ -69,7 +69,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
 
         var id: Int
         var date: String
-        var name: String
+        //var name: String
         var age: String
         var bmi: String
 
@@ -81,13 +81,13 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
                 //date = cursor.getString(cursor.getColumnIndex("date"))
                 date = cursor.getString(cursor.getColumnIndexOrThrow("date"))
                 //name = cursor.getString(cursor.getColumnIndex("name"))
-                name = cursor.getString(cursor.getColumnIndexOrThrow("name"))
+                //name = cursor.getString(cursor.getColumnIndexOrThrow("name"))
                 //age = cursor.getString(cursor.getColumnIndex("age"))
                 age = cursor.getString(cursor.getColumnIndexOrThrow("age"))
                 //bmi = cursor.getString(cursor.getColumnIndex("bmi"))
                 bmi = cursor.getString(cursor.getColumnIndexOrThrow("bmi"))
 
-                val data = BMIModel(id = id, date = date, name = name, age = age, bmi = bmi)
+                val data = BMIModel(id = id, date = date, age = age, bmi = bmi)
                 bmiList.add(data) //use arraylist too store data of model
                 //Log.e("cursor: ", "${cursor.moveToNext()}")
             }while(cursor.moveToNext())
